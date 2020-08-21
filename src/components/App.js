@@ -1,7 +1,7 @@
 import React from 'react';
 import ROUTES, {RenderRoutes} from '../routes/routes'
-import logo from './logo.svg';
-import './App.css';
+import logo from '../logo.svg';
+import '../App.css';
 
 function App() {
   return (

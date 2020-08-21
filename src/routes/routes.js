@@ -1,13 +1,12 @@
 import React from 'react'
 import { Route, Switch } from "react-router-dom";
-import App from '../components/App'
 
 const ROUTES = [
   {
     path: '/',
     key: 'ROOT',
     exact: true,
-    component : () => <App/>
+    component : () => <h1> i'm home</h1>
   },
   {
     path: "/app",
