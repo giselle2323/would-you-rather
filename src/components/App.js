@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import ROUTES, {RenderRoutes} from '../routes/routes'
 import logo from '../logo.svg';
 import '../App.css';
@@ -6,8 +7,6 @@ import '../App.css';
 function App() {
   return (
     <section className="App">
-      <h1>App</h1>
-
       <div>
         <RenderRoutes routes={ROUTES} />
       </div>
@@ -15,4 +14,10 @@ function App() {
   );
 }
 
-export default App;
+function mapStateToProps({ authedUser }) {
+  return {
+    loading: authedUser === null
+  }
+}
+
+export default connect(mapStateToProps)(App);

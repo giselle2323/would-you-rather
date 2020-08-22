@@ -1,12 +1,21 @@
 import React from 'react'
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom"
+import Login from '../components/Login'
+import Home from '../components/Home'
+
 
 const ROUTES = [
   {
     path: '/',
     key: 'ROOT',
     exact: true,
-    component : () => <h1> i'm home</h1>
+    component : () => <Home />
+  },
+  {
+    path: '/login',
+    key: 'LOGIN',
+    exact: true,
+    component : () => <Login />
   },
   {
     path: "/app",
