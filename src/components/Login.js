@@ -1,14 +1,19 @@
 import React, {useEffect} from 'react'
 import Select from 'react-select'
-import {_getUsers} from '../utils/_DATA'
+import { connect } from 'react-redux'
+import {getUsers} from '../actions/shared'
 
 
-const Login = () => {
-
+const Login = (props) => {
+  const {dispatch, users } = props
   useEffect(() => {
+    dispatch(getUsers())
+    console.log(getUsers)
     
+  }, [dispatch]);
   
-  }, []);
+  console.log(users)
+
   const options = [
     { value: 'chocolate', label: 'Chocolate' },
     { value: 'strawberry', label: 'Strawberry' },
@@ -27,5 +32,10 @@ const Login = () => {
  )
 
 }
+function mapStateToProps({ users }, { id }) {
 
-export default Login
+  return {
+    users
+  }
+}
+export default connect(mapStateToProps)(Login)
