@@ -1,17 +1,30 @@
-export const RECEIVE_USERS = 'RECEIVE_USERS'
-export const RECEIVE_USER = 'RECEIVE_USER'
+import { _getUsers } from '../utils/_DATA'
+export const GET_USERS = 'GET_USERS'
+export const GET_USERS_SUCCESS = 'GET_USERS_SUCCESS'
+export const GET_USERS_ERROR = 'GET_USERS_ERROR'
 
-export function receiveUsers(users) {
-  return {
-    type: RECEIVE_USERS,
-    users,
+export const getUsers = () => {
+  return dispatch => {
+      return _getUsers()
+      .then( users => {
+        dispatch(getUsersSuccess(users));
+      })
+      .catch(err => {
+        dispatch(getUsersError(err.message));
+      });
+  };
+};
+const getUsersSuccess = users => ({
+  type: GET_USERS_SUCCESS,
+  payload: {
+    users
   }
-}
+});
 
-export function receiveUser(user) {
-  return {
-    type: RECEIVE_USER,
-    user,
+const getUsersError = error => ({
+  type: GET_USERS_ERROR,
+  payload: {
+    error
   }
-}
+});
 

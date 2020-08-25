@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 import authedUser from './authedUser'
-import users from './users'
+import allUsers from './users'
 
 export default combineReducers({
   authedUser,
-  users
+  allUsers
 })
