@@ -1,31 +1,41 @@
 import React, {useEffect} from 'react'
-import Select from 'react-select'
 import { connect } from 'react-redux'
-import {getUsers} from '../actions/users'
+import {getUsers} from '../redux/actions/users/userActions'
 
 
 const Login = (props) => {
-  const { getAllUsers } = props
+  const { getAllUsers, allUsers } = props
   useEffect(() => {
     getAllUsers()
     
   }, [getAllUsers]);
   
-
-  const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
-  ]
+  console.log(allUsers)
+  console.log(Object.keys(allUsers.users).map(users =>
+    {
+      return users;
+    }
+  ))
  return (
   <>
      <div>Login page</div>
-     <form>
-
-       <label for="userSelect">Select User </label>
-       <Select options={options} />
-      <input type="submit" value='Submit'/>
-     </form>
+     {/* <form >
+         <label for="userSelect">Select User</label>
+         <input
+           id="userSelect"
+           type="select"
+           name="select"
+         >
+           <option value={2} disabled>Please select</option>
+           {
+             Object.keys(allUsers.users).map(users =>
+               <option key={users} value={users}>
+                 {allUsers.users[users].name}
+               </option>)
+           }
+         </input>
+       <input disabled='' type="submit" value="Submit" />
+     </form> */}
   </>
  )
 
