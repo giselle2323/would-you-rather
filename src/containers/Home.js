@@ -1,12 +1,19 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
+import { getInitialData} from '../redux/actions/shared'
 
-
-const Login = (props) => {
- return (
-  <>
-     <div>Login page</div>
-     {/* <form >
+const Home = (props) => {
+  const { dispatch, allUsers } = props
+  useEffect(() => {
+    dispatch(getInitialData())
+  }, [dispatch]);
+  console.log(allUsers)
+  return(
+    <div>
+      <h2>We are home</h2>
+      <>
+        <div>Login page</div>
+        {/* <form >
          <label for="userSelect">Select User</label>
          <input
            id="userSelect"
@@ -23,21 +30,15 @@ const Login = (props) => {
          </input>
        <input disabled='' type="submit" value="Submit" />
      </form> */}
-  </>
- )
+      </>
+    </div>
+  )
+};
 
-}
-const mapStateToProps = ({ allUsers })  => {
-
+const mapStateToProps = ({ allUsers }) => {
   return {
-    allUsers
-  }
-}
+    allUsers,
+  };
+};
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    
-  }
-
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(mapStateToProps)(Home)

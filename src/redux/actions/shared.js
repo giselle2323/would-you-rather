@@ -1,6 +1,5 @@
 import { fetchUsers } from './users'
 import { fetchQuestions } from './questions'
-import { } from 're'
 import { _getUsers, _getQuestions } from '../../utils/_DATA'
 
 const getAllData = () => {
@@ -15,11 +14,9 @@ const getAllData = () => {
 
 export const getInitialData = () => {
   return dispatch => {
-    dispatch(showLoading());
     return getAllData().then(({ users, questions})=> {
       dispatch(fetchQuestions(questions));
       dispatch(fetchUsers(users));
-      dispatch(hideLoading());
     })
   }
 }
