@@ -1,31 +1,18 @@
-export const SET_AUTH_USER = 'SET_AUTHED_USER'
 export const LOGIN_USER = 'LOGIN_USER'
 export const SIGN_OUT_USER = 'SIGN_OUT_USER'
 
-export const setAuthUser = (id) => {
-  return {
-    type: SET_AUTH_USER,
-    payload: {
-      authedUser: id
-    }
-    
-  }
-}
 
-export const loginUser = (user) => {
+export const loginUser = (id) => {
   return {
     type: LOGIN_USER,
     payload: {
-      user
+      authedUser: id
     }
   }
 }
 
-export const signOutUser = (user) => {
+export const signOutUser = () => {
   return {
-    type: SIGN_OUT_USER,
-    payload: {
-      user
-    }
+    type: SIGN_OUT_USER
   }
 }

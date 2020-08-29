@@ -6,11 +6,12 @@ const SelectUser = (props) => {
   const { allUsers, dispatch } = props
   const [activeUser , setActiveUser] = useState('')
   const loginActiveUser = () => {
-    dispatch(loginUser)
+    dispatch(loginUser(activeUser))
   }
   const selectAUser = (user) => {
-    setActiveUser(user)
+    setActiveUser(user.name)
   }
+
   return(
     <div className="container">
       <span className="heading">Welcome to Would You Rather?</span>
@@ -37,14 +38,16 @@ const SelectUser = (props) => {
           </div>
         ))}
       </div>
-      {/* <p>All these images are from <a href="">dribbble</a></p> */}
-      <button
-        style={{
-          width: "20rem",
-        }}
-        className="primary-cta"
-        onClick={loginActiveUser}
-      >{`Continue as ${activeUser}`}</button>
+      {activeUser !== '' ?
+        <button
+          style={{
+            width: "20rem",
+          }}
+          className="primary-cta"
+          onClick={loginActiveUser}
+        >{`Continue as ${activeUser}`}</button>
+        : ''
+      }
     </div>
   )
 }
