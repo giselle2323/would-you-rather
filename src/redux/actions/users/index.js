@@ -3,7 +3,8 @@ import { GET_USERS,
   GET_USERS_ERROR, 
   fetchUsers, 
   fetchUsersSuccess, 
-  fetchUsersError
+  fetchUsersError,
+  addQuestionToUser
 } from './userActions'
 
 import { LOGIN_USER, SIGN_OUT_USER, loginUser, signOutUser } from './authedUser'
@@ -17,5 +18,6 @@ export {
   signOutUser,
   fetchUsers,
   fetchUsersSuccess,
-  fetchUsersError
+  fetchUsersError,
+  addQuestionToUser
 }
