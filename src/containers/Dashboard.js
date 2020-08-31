@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import Question from '../components/Question'
 
-const Dashbaord = () => {
+const Dashboard = () => {
+  const [activeTab, setActiveTab] = useState('')
+  
+  const onChangeTab = () => {
+
+  }
+  
   return (
     <div>Dashboard</div>
   )
 }
 
-export default Dashbaord;
+export default (connect)(Dashboard);

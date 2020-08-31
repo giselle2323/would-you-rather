@@ -27,3 +27,6 @@ export const fetchUsersError = error => ({
   }
 });
 
+export const addQuestionToUser = () => {
+  return 2;
+}
