@@ -28,7 +28,7 @@ const Dashboard = () => {
       </nav>
 
       <div>
-        
+        <Question />
       </div>
     </>
   )
