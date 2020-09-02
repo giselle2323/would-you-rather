@@ -3,10 +3,11 @@ import { connect } from 'react-redux'
 import Question from '../components/Question'
 
 const Dashboard = () => {
-  const [activeTab, setActiveTab] = useState('')
-  const [menuTabs, setMenuTabs] = useState([{name: 'Unanswered'}, {name: 'Answered'}])
-  const onChangeTab = () => {
+  const [activeTab, setActiveTab] = useState('');
+  const [menuTabs, setMenuTabs] = useState([{name: 'Unanswered'}, {name: 'Answered'}]);
 
+  const onChangeTab = (tabMenu) => {
+    setActiveTab(tabMenu)
   }
   
   return (
@@ -34,11 +35,11 @@ const Dashboard = () => {
   )
 }
 
-const mapStateToProps = ({authedUser, questions, allUsers}) => {
-  const allQuestions = Object.keys(questions).sort(
-    (a,b) => questions[b].timestamp - questions[a].timestamp
+const mapStateToProps = ({authedUser, questions, users}) => {
+  const allQuestions = Object.keys(questions.questions).sort(
+    (a,b) => questions.questions[b].timestamp - questions.questions[a].timestamp
   );
-  const answeredQuestions = Object.keys(allUsers[authedUser].answers);
+  const answeredQuestions = Object.keys(users.users[authedUser].answers);
   return {
     authedUser: users[authedUser],
     answeredQuestions,

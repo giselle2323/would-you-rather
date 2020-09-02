@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { getInitialData} from '../redux/actions/shared'
+import { getInitialData } from '../redux/actions/shared'
 import SelectUser from '../components/SelectUser'
 import Dashboard from './Dashboard'
 const Home = (props) => {
-  const { dispatch, allUsers, authedUser} = props
+  const { dispatch, users, authedUser} = props
   useEffect(() => {
     dispatch(getInitialData())
   }, [dispatch]);
-  console.log(allUsers)
+  console.log(users)
   return(
     <div>
       {authedUser === null ? <SelectUser /> : <Dashboard />
@@ -19,9 +19,9 @@ const Home = (props) => {
   )
 };
 
-const mapStateToProps = ({ allUsers, authedUser, questions }) => {
+const mapStateToProps = ({ users, authedUser, questions }) => {
   return {
-    allUsers,
+    users,
     authedUser,
     questions,
 

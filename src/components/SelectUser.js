@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { loginUser } from "../redux/actions/users"
 
 const SelectUser = (props) => {
-  const { allUsers, dispatch } = props
+  const { users, dispatch } = props
   const [activeUser , setActiveUser] = useState('')
   const loginActiveUser = () => {
     dispatch(loginUser(activeUser))
@@ -17,23 +17,23 @@ const SelectUser = (props) => {
       <span className="heading">Welcome to Would You Rather?</span>
       <p>Please select user to continue</p>
       <div className="select-user-grid">
-        {Object.keys(allUsers.users).map((keyName) => (
+        {Object.keys(users).map((keyName) => (
           <div
             className="select-user-item"
-            onClick={() => selectAUser(allUsers.users[keyName])}
+            onClick={() => selectAUser(users[keyName])}
             key={keyName}
           >
             <img
               alt="user-avatar"
-              src={allUsers.users[keyName].avatar}
+              src={users[keyName].avatar}
               className={
-                allUsers.users[keyName].name === activeUser
+                users[keyName].name === activeUser
                   ? "select-user-avatar active-user-avatar"
                   : "select-user-avatar"
               }
             />
             <p className="select-user-avatar-name">
-              {allUsers.users[keyName].name}
+              {users[keyName].name}
             </p>
           </div>
         ))}
@@ -52,9 +52,9 @@ const SelectUser = (props) => {
   )
 }
 
-function mapStateToProps({ allUsers }) {
+function mapStateToProps({ users }) {
   return {
-    allUsers,
+    users,
   }
 }
 
