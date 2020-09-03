@@ -9,7 +9,7 @@ const SelectUser = (props) => {
     dispatch(loginUser(activeUser))
   }
   const selectAUser = (user) => {
-    setActiveUser(user.name)
+    setActiveUser(user.id)
   }
 
   return(

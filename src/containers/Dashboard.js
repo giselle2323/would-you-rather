@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import Question from '../components/Question'
 
-const Dashboard = () => {
-  const [activeTab, setActiveTab] = useState('');
-  const [menuTabs, setMenuTabs] = useState([{name: 'Unanswered'}, {name: 'Answered'}]);
+const Dashboard = (props) => {
+  const {answeredQuestions, unansweredQuestions} = props;
+  const [activeTab, setActiveTab] = useState('Unanswered');
+  const [menuTabs] = useState([{name: 'Unanswered'}, {name: 'Answered'}]);
 
   const onChangeTab = (tabMenu) => {
     setActiveTab(tabMenu)
@@ -21,7 +22,7 @@ const Dashboard = () => {
             ? 'tab-link-item-active'
             : 'tab-link-item'
             }
-            onClick={onChangeTab(tab.name)}
+            onClick={() => onChangeTab(tab.name)}
           >
             {tab.name}
           </div>
@@ -29,17 +30,31 @@ const Dashboard = () => {
       </nav>
 
       <div>
-        <Question />
+        {activeTab === 'Answered'
+          ? answeredQuestions.map((question) => (
+            <Question
+              key={question}
+              isAnswered={activeTab}
+              id={question}
+            />
+          ))
+          : unansweredQuestions.map((question) => (
+            <Question
+              key={question}
+              isAnswered={activeTab}
+              id={question}
+            />
+          ))}
       </div>
     </>
   )
 }
 
 const mapStateToProps = ({authedUser, questions, users}) => {
-  const allQuestions = Object.keys(questions.questions).sort(
-    (a,b) => questions.questions[b].timestamp - questions.questions[a].timestamp
+  const allQuestions = Object.keys(questions).sort(
+    (a,b) => questions[b].timestamp - questions[a].timestamp
   );
-  const answeredQuestions = Object.keys(users.users[authedUser].answers);
+  const answeredQuestions = Object.keys(users[authedUser].answers);
   return {
     authedUser: users[authedUser],
     answeredQuestions,

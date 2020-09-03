@@ -15,8 +15,9 @@ const getAllData = () => {
 export const getInitialData = () => {
   return dispatch => {
     return getAllData().then(({ users, questions})=> {
-      dispatch(fetchQuestions(questions));
       dispatch(fetchUsers(users));
+      dispatch(fetchQuestions(questions));
+      
     })
   }
 }

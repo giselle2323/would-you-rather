@@ -6,6 +6,7 @@ const Question = (props) => {
   const { name, avatar } = props.author;
   const { id, optionOne, optionTwo } = props.question;
   const { isAnswered } = props;
+  console.log(isAnswered)
   return (
     <div className="question-item">
       <div className="question-item-author">{name} asks</div>
@@ -31,7 +32,7 @@ const Question = (props) => {
             {optionTwo.text}
           </p>
           <Link className="poll-btn" to={`questions/${id}`}>
-            {!isAnswered ? "Answer" : "View Results"}
+            {isAnswered === 'Unanswered' ? "Answer" : "View Results"}
           </Link>
         </div>
       </div>
@@ -41,6 +42,7 @@ const Question = (props) => {
 
 const mapStateToProps = ({ users, questions }, { id }) => {
   const questionItem = questions[id];
+  console.log(id)
   let { author } = questionItem;
   author = users[author];
 

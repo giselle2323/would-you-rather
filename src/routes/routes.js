@@ -1,6 +1,8 @@
 import React from 'react'
 import { Route, Switch } from "react-router-dom"
 import Home from '../containers/Home'
+import QuestionPage from '../containers/QuestionPage'
+
 
 
 const ROUTES = [
@@ -10,7 +12,12 @@ const ROUTES = [
     exact: true,
     component : () => <Home />
   },
-  
+  {
+    path: '/questions/:question_id',
+    key: 'ROOT',
+    exact: true,
+    component: () => <QuestionPage />
+  },
   {
     path: "/app",
     key: "APP",
