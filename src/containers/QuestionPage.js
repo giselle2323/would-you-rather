@@ -4,8 +4,12 @@ import { connect } from 'react-redux'
 const QuestionPage = () => {
   return (
     <div>
-      
+      yup
     </div>
   )
 };
-export default connect()(QuestionPage)
+
+const mapStateToProps = () => {
+
+}
+export default connect(mapStateToProps)(QuestionPage)
