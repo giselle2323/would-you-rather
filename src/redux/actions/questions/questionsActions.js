@@ -40,7 +40,7 @@ const addQuestion = (question) => {
   }
 }
 
-const addAnswerToQuestion = (quid, authedUser, option) => {
+export const addAnswerToQuestion = (quid, authedUser, option) => {
   return {
     type: ADD_ANSWER,
     payload: {
