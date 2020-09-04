@@ -1,5 +1,5 @@
 import {_saveQuestion} from '../../../utils/_DATA'
-import {addQuestionToUser} from '../users'
+import { addQuestionToUser } from '../users'
 import { showLoading, hideLoading } from 'react-redux-loading'
 export const GET_QUESTIONS = 'GET_QUESTIONS'
 export const GET_QUESTIONS_SUCCESS = 'GET_QUESTIONS_SUCCESS'
