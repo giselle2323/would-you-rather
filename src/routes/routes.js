@@ -14,7 +14,7 @@ const ROUTES = [
   },
   {
     path: '/questions/:question_id',
-    key: 'ROOT',
+    key: 'question',
     exact: true,
     component: () => <QuestionPage />
   },
@@ -55,7 +55,7 @@ function RouteWithSubRoutes(route) {
 export function RenderRoutes({ routes }) {
   return (
     <Switch>
-      {routes.map((route, i) => {
+      {routes.map((route) => {
         return <RouteWithSubRoutes key={route.key} {...route} />;
       })}
       <Route component={() => <h1>Not Found!</h1>} />

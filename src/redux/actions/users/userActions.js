@@ -1,6 +1,6 @@
 import { showLoading, hideLoading } from 'react-redux-loading'
 import { _saveQuestionAnswer } from '../../../utils/_DATA'
-import { addAnswerToQuestion, ADD_ANSWER } from '../questions/questionsActions'
+import { addAnswerToQuestion } from '../questions/questionsActions'
 
 
 
@@ -53,13 +53,13 @@ const addAnswerToUser = (qid, author, option) =>({
   }
 })
 
-export function handleSaveQuestionAnswer(authUser, qid, option) {
+export function handleSaveQuestionAnswer(authedUser, qid, option) {
   return (dispatch) => {
     dispatch(showLoading());
-    dispatch(addAnswerToUser(qid, authUser, option));
-    dispatch(addAnswerToQuestion(qid, authUser, option));
+    dispatch(addAnswerToUser(qid, authedUser, option));
+    dispatch(addAnswerToQuestion(qid, authedUser, option));
 
-    return _saveQuestionAnswer({ authedUser: authUser, qid, answer: option })
+    return _saveQuestionAnswer({ authedUser: authedUser, qid, answer: option })
       .then(() => {
         dispatch(hideLoading());
         alert("Task Completed Successfully");
