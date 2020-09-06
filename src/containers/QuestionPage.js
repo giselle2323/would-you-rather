@@ -65,14 +65,15 @@ const QuestionPage = (props) => {
 
 const mapStateToProps = ({ authedUser, users, questions }, props) => {
 
+  console.log(authedUser, users, questions, 'here')
   const { question_id } = props.match.params;
   const question = questions[question_id];
 
-  if (!question) {
-    return {
-      isNotExists: true,
-    };
-  }
+  // if (!question) {
+  //   return {
+  //     isNotExists: true,
+  //   };
+  // }
 
   const authed = users[authedUser];
   const isAnswered = Object.keys(authed.answers).includes(question_id);

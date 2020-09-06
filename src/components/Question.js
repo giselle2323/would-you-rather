@@ -1,12 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 const Question = (props) => {
   const { name, avatar } = props.author;
   const { id, optionOne, optionTwo } = props.question;
   const { isAnswered } = props;
-  console.log(isAnswered)
   return (
     <div className="question-item">
       <div className="question-item-author">{name} asks</div>
@@ -52,4 +51,4 @@ const mapStateToProps = ({ users, questions }, { id }) => {
   };
 };
 
-export default connect(mapStateToProps)(Question);
+export default withRouter(connect(mapStateToProps)(Question));
