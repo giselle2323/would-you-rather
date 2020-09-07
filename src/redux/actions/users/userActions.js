@@ -2,8 +2,6 @@ import { showLoading, hideLoading } from 'react-redux-loading'
 import { _saveQuestionAnswer } from '../../../utils/_DATA'
 import { addAnswerToQuestion } from '../questions/questionsActions'
 
-
-
 export const GET_USERS = 'GET_USERS'
 export const GET_USERS_SUCCESS = 'GET_USERS_SUCCESS'
 export const GET_USERS_ERROR = 'GET_USERS_ERROR'
@@ -22,19 +20,6 @@ export const fetchUsers = users => {
   }
 }
 
-export const fetchUsersSuccess = users => ({
-  type: GET_USERS_SUCCESS,
-  payload: {
-    users,
-  }
-});
-
-export const fetchUsersError = error => ({
-  type: GET_USERS_ERROR,
-  payload: {
-    error
-  }
-});
 
 export const addQuestionToUser = (id, authedUser) => ({
   type: ADD_QUESTION_TO_USER,
@@ -62,7 +47,6 @@ export function handleSaveQuestionAnswer(authedUser, qid, option) {
     return _saveQuestionAnswer({ authedUser: authedUser, qid, answer: option })
       .then(() => {
         dispatch(hideLoading());
-        alert("Task Completed Successfully");
       })
       .catch((e) => {
         alert("Something went wrong");

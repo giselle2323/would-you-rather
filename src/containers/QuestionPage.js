@@ -1,17 +1,25 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import ProgressIndicator from '../components/ProgressIndicator'
-import {handleSaveQuestionAnswer } from '../redux/actions/users'
+import { handleSaveQuestionAnswer } from '../redux/actions/users'
 
 const QuestionPage = (props) => {
 
-  const {dispatch, authedUser, question, author, isAnswered, vote } = props;
+  const {dispatch, authedUser, question, author, isAnswered, vote, isNotExists, history } = props;
   const { name, avatar } = author;
   const { optionOne, optionTwo } = question;
+  
+  if (isNotExists) {
+    history.push("/");
+    return null;
+  }
 
   const handleVote = (option) => {
     dispatch(handleSaveQuestionAnswer(authedUser, question.id, option))
   }
+
+ 
+
   return (
     <div>
       <div className="question-item">
@@ -23,7 +31,7 @@ const QuestionPage = (props) => {
           <span className="vertical-hr" />
           <div>
             <span className="title">Would you rather</span>
-            {isAnswered ? (
+            {isAnswered === 'Answered' ? (
               <div>
                 <ProgressIndicator
                   text={optionOne.text}
@@ -65,15 +73,15 @@ const QuestionPage = (props) => {
 
 const mapStateToProps = ({ authedUser, users, questions }, props) => {
 
-  console.log(authedUser, users, questions, 'here')
+
   const { question_id } = props.match.params;
   const question = questions[question_id];
 
-  // if (!question) {
-  //   return {
-  //     isNotExists: true,
-  //   };
-  // }
+  if (!question) {
+    return {
+      isNotExists: true,
+    };
+  }
 
   const authed = users[authedUser];
   const isAnswered = Object.keys(authed.answers).includes(question_id);
