@@ -5,21 +5,20 @@ import { handleSaveQuestionAnswer } from '../redux/actions/users'
 
 const QuestionPage = (props) => {
 
-  const {dispatch, authedUser, question, author, isAnswered, vote, isNotExists, history } = props;
+  const {dispatch, authedUser, question, author, answeredQuestions, vote, isNotExists, history } = props;
   const { name, avatar } = author;
   const { optionOne, optionTwo } = question;
-  
+
   if (isNotExists) {
     history.push("/");
     return null;
   }
 
   const handleVote = (option) => {
+    console.log(authedUser, question.id, option)
     dispatch(handleSaveQuestionAnswer(authedUser, question.id, option))
   }
-
- 
-
+  
   return (
     <div>
       <div className="question-item">
@@ -31,7 +30,7 @@ const QuestionPage = (props) => {
           <span className="vertical-hr" />
           <div>
             <span className="title">Would you rather</span>
-            {isAnswered === 'Answered' ? (
+            {answeredQuestions ? (
               <div>
                 <ProgressIndicator
                   text={optionOne.text}
@@ -84,7 +83,8 @@ const mapStateToProps = ({ authedUser, users, questions }, props) => {
   }
 
   const authed = users[authedUser];
-  const isAnswered = Object.keys(authed.answers).includes(question_id);
+  const answeredQuestions = Object.keys(authed.answers).includes(question_id);
+  console.log(answeredQuestions)
 
   const authorId = questions[question_id].author;
   const author = users[authorId];
@@ -93,9 +93,9 @@ const mapStateToProps = ({ authedUser, users, questions }, props) => {
     question,
     author,
     authedUser: authedUser,
-    isAnswered,
+    answeredQuestions,
     isNotExists: false,
-    vote: isAnswered ? authed.answers[question_id] : "",
+    vote: answeredQuestions ? authed.answers[question_id] : null,
   };
 }
 export default connect(mapStateToProps)(QuestionPage)

@@ -1,4 +1,4 @@
-import { GET_QUESTIONS, GET_QUESTIONS_SUCCESS, GET_QUESTIONS_ERROR, } from '../../actions/questions/questionsActions'
+import { GET_QUESTIONS, ADD_QUESTION, ADD_ANSWER } from '../../actions/questions/questionsActions'
 
 
 const initialState = {};
@@ -10,15 +10,23 @@ export default function questionsReducer(state = initialState, action) {
         ...state,
         ...action.payload.questions
       };
-    case GET_QUESTIONS_SUCCESS:
+    case ADD_QUESTION:
+      const { question } = action.payload;
       return {
         ...state,
-        ...action.payload.questions
+        [question.id]: question,
       };
-    case GET_QUESTIONS_ERROR:
+    case ADD_ANSWER:
+      const { qid, authedUser, option } = action.payload;
       return {
         ...state,
-        ...action.payload.error
+        [qid]: {
+          ...state[qid],
+          [option]: {
+            ...state[qid][option],
+            votes: state[qid][option].votes.concat(authedUser),
+          },
+        },
       };
     default:
       return state;

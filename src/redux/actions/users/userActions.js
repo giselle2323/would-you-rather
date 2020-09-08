@@ -41,15 +41,14 @@ const addAnswerToUser = (qid, author, option) =>({
 export function handleSaveQuestionAnswer(authedUser, qid, option) {
   return (dispatch) => {
     dispatch(showLoading());
-    dispatch(addAnswerToUser(qid, authedUser, option));
-    dispatch(addAnswerToQuestion(qid, authedUser, option));
+    _saveQuestionAnswer({
+      authedUser: authedUser,
+      qid,
+      answer: option
+    }).then(() => {
+      dispatch(addAnswerToQuestion({ authedUser, qid, option }))
+      dispatch(addAnswerToUser({ authedUser, qid, option }))
+    }).then(() => dispatch(hideLoading()))
 
-    return _saveQuestionAnswer({ authedUser: authedUser, qid, answer: option })
-      .then(() => {
-        dispatch(hideLoading());
-      })
-      .catch((e) => {
-        alert("Something went wrong");
-      });
   };
 }

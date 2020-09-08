@@ -1,18 +1,14 @@
 import { 
   GET_QUESTIONS,
-  GET_QUESTIONS_SUCCESS,
-  GET_QUESTIONS_ERROR,
   fetchQuestions,
-  fetchQuestionsSuccess,
-  fetchQuestionsError
+  addAnswerToQuestion,
+  handleSaveQuestion,
 } from './questionsActions'
 
 
 export {
   GET_QUESTIONS,
-  GET_QUESTIONS_SUCCESS,
-  GET_QUESTIONS_ERROR,
   fetchQuestions,
-  fetchQuestionsSuccess,
-  fetchQuestionsError
+  addAnswerToQuestion,
+  handleSaveQuestion,
 }

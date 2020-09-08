@@ -2,8 +2,6 @@ import {_saveQuestion} from '../../../utils/_DATA'
 import { addQuestionToUser } from '../users'
 import { showLoading, hideLoading } from 'react-redux-loading'
 export const GET_QUESTIONS = 'GET_QUESTIONS'
-export const GET_QUESTIONS_SUCCESS = 'GET_QUESTIONS_SUCCESS'
-export const GET_QUESTIONS_ERROR = 'GET_QUESTIONS_ERROR'
 export const ADD_QUESTION = 'ADD_QUESTION'
 export const ADD_ANSWER = 'ADD_ANSWER'
 
@@ -17,19 +15,6 @@ export const fetchQuestions = questions => {
   }
 }
 
-export const fetchQuestionsSuccess = questions => ({
-  type: GET_QUESTIONS_SUCCESS,
-  payload: {
-    questions
-  }
-});
-
-export const fetchQuestionsError = error => ({
-  type: GET_QUESTIONS_ERROR,
-  payload: {
-    error
-  }
-});
 
 const addQuestion = (question) => {
   return {
@@ -40,11 +25,11 @@ const addQuestion = (question) => {
   }
 }
 
-export const addAnswerToQuestion = (quid, authedUser, option) => {
+export const addAnswerToQuestion = (qid, authedUser, option) => {
   return {
     type: ADD_ANSWER,
     payload: {
-      quid,
+      qid,
       authedUser,
       option,
     }
