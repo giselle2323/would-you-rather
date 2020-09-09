@@ -16,7 +16,7 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route path="/questions/bad_id" component={NoMatch} />
               <Route path="/questions/:question_id" component={QuestionPage} />
-              <Route path="/new/question" component={AddQuestion} />
+              <Route path="/add" component={AddQuestion} />
               <Route path="/leaderboard" component={Leaderboard} />
               <Route component={NoMatch} />
             </Switch>
