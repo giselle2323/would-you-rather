@@ -39,13 +39,13 @@ export const addAnswerToQuestion = (authedUser, qid, option) => {
 export function handleSaveQuestion(optionOneText, optionTwoText, author) {
   return (dispatch) => {
     dispatch(showLoading());
-    return _saveQuestion({ optionOneText, optionTwoText, author }).then(
-      (question) => {
-        dispatch(addQuestion(question));
-        dispatch(addQuestionToUser(question.id, author));
-        dispatch(hideLoading());
-        alert("Task Completed Successfully");
-      }
-    );
+    return _saveQuestion({ optionOneText, optionTwoText, author })
+      .then(
+        (question) => {
+          dispatch(addQuestion(question));
+          dispatch(addQuestionToUser(question.id, author));
+          dispatch(hideLoading());
+        }
+      );
   };
 }

@@ -6,6 +6,7 @@ import NoMatch from './NoMatch'
 import Leaderboard from './Leaderboard'
 import Home from '../containers/Home'
 import QuestionPage from '../containers/QuestionPage'
+import AddQuestion from '../containers/AddQuestion'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route path="/questions/bad_id" component={NoMatch} />
               <Route path="/questions/:question_id" component={QuestionPage} />
+              <Route path="/new/question" component={AddQuestion} />
               <Route path="/leaderboard" component={Leaderboard} />
               <Route component={NoMatch} />
             </Switch>
