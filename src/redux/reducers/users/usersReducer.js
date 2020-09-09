@@ -22,16 +22,16 @@ export default function usersReducer(state = initialState, action) {
         },
       };
     case ADD_VOTE_TO_USER:
-      const { qid, author, option } = action.payload;
+      const {authedUser, qid, option } = action.payload;
       return {
         ...state,
-        [author]: {
-          ...state[author],
+        [authedUser]: {
+          ...state[authedUser],
           answers: {
-            ...state[author].answers,
-            [qid]: option,
-          },
-        },
+            ...state[authedUser].answers,
+            [qid]: option
+          }
+        }
       };
     default:
       return state;

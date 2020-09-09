@@ -17,15 +17,15 @@ export default function questionsReducer(state = initialState, action) {
         [question.id]: question,
       };
     case ADD_ANSWER:
-      const { qid, authedUser, option } = action.payload;
+      const { authedUser, qid, option } = action.payload;
       return {
         ...state,
         [qid]: {
           ...state[qid],
           [option]: {
             ...state[qid][option],
-            votes: state[qid][option].votes.concat(authedUser),
-          },
+            votes: state[qid][option].votes.concat(authedUser)
+          }
         },
       };
     default:

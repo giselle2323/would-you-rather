@@ -29,11 +29,11 @@ export const addQuestionToUser = (id, authedUser) => ({
   }
 })
 
-const addAnswerToUser = (qid, author, option) =>({
+const addAnswerToUser = (authedUser, qid, option) =>({
   type: ADD_VOTE_TO_USER,
   payload: {
+    authedUser,
     qid,
-    author,
     option,
   }
 })
@@ -41,13 +41,14 @@ const addAnswerToUser = (qid, author, option) =>({
 export function handleSaveQuestionAnswer(authedUser, qid, option) {
   return (dispatch) => {
     dispatch(showLoading());
+    console.log(authedUser)
     _saveQuestionAnswer({
-      authedUser: authedUser,
+      authedUser,
       qid,
       answer: option
     }).then(() => {
-      dispatch(addAnswerToQuestion({ authedUser, qid, option }))
-      dispatch(addAnswerToUser({ authedUser, qid, option }))
+      dispatch(addAnswerToUser(authedUser, qid, option ))
+      dispatch(addAnswerToQuestion(authedUser, qid, option ))
     }).then(() => dispatch(hideLoading()))
 
   };

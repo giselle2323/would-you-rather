@@ -25,7 +25,7 @@ const addQuestion = (question) => {
   }
 }
 
-export const addAnswerToQuestion = (qid, authedUser, option) => {
+export const addAnswerToQuestion = (authedUser, qid, option) => {
   return {
     type: ADD_ANSWER,
     payload: {
