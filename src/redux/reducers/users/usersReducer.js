@@ -13,12 +13,12 @@ export default function usersReducer(state = initialState, action) {
         ...action.payload.users
       };
     case ADD_QUESTION_TO_USER:
-      const { id, authUser } = action.payload;
+      const { author, id } = action.payload;
       return {
         ...state,
-        [authUser]: {
-          ...state[authUser],
-          questions: state[authUser].questions.concat(id),
+        [author]: {
+          ...state[author],
+          questions: state[author].questions.concat(id),
         },
       };
     case ADD_VOTE_TO_USER:

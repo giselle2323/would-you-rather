@@ -21,11 +21,11 @@ export const fetchUsers = users => {
 }
 
 
-export const addQuestionToUser = (id, authedUser) => ({
+export const addQuestionToUser = (author, id) => ({
   type: ADD_QUESTION_TO_USER,
   payload: {
+    author,
     id,
-    authedUser,
   }
 })
 

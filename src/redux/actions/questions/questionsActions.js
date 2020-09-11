@@ -43,7 +43,7 @@ export function handleSaveQuestion(optionOneText, optionTwoText, author) {
       .then(
         (question) => {
           dispatch(addQuestion(question));
-          dispatch(addQuestionToUser(question.id, author));
+          dispatch(addQuestionToUser(author, question.id));
           dispatch(hideLoading());
         }
       );
