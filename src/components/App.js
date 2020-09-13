@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import '../App.css';
 
 import NoMatch from './NoMatch'
-import Leaderboard from './Leaderboard'
+import Leaderboard from '../containers/Leaderboard'
 import Home from '../containers/Home'
 import QuestionPage from '../containers/QuestionPage'
 import AddQuestion from '../containers/AddQuestion'
