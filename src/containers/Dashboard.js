@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import Question from '../components/Question'
-import Nav from '../components/Nav'
-import { signOutUser } from '../redux/actions/users'
 
 const Dashboard = (props) => {
-  const {answeredQuestions, unansweredQuestions, authedUser } = props;
+  const {answeredQuestions, unansweredQuestions } = props;
   const [activeTab, setActiveTab] = useState('Unanswered');
   const [menuTabs] = useState([{name: 'Unanswered'}, {name: 'Answered'}]);
 
@@ -15,7 +13,6 @@ const Dashboard = (props) => {
   
   return (
     <>
-      <Nav authedUser={authedUser} signOut={signOutUser} />
       <div>Dashboard</div>
       <nav>
         {menuTabs.map((tab) => (

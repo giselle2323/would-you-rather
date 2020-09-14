@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 const Nav = ({ authedUser, signOut}) => {
+  console.log(authedUser)
   return (
     <div className="nav">
       <span className="heading">
