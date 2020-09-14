@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const LeaderBoardItem = ({ id, name, avatar, questions, answers }) => {
+const LeaderBoardItem = ({ user }) => {
 
+  const { id, name, avatar, questions, answers } = user;
   const answeredQuestions = Object.keys(answers).length;
   const createdQuestions = questions.length;
   const totalPoints = answeredQuestions + createdQuestions;
