@@ -1,29 +1,28 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import {  Route, Switch, BrowserRouter } from 'react-router-dom'
+import {  Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 import '../App.css';
 
 import NoMatch from './NoMatch'
 import Leaderboard from '../containers/Leaderboard'
 import QuestionPage from '../containers/QuestionPage'
 import AddQuestion from '../containers/AddQuestion'
+import LoadingBar from 'react-redux-loading-bar'
 
 import { getInitialData } from '../redux/actions/shared'
-import LoadingBar from 'react-redux-loading'
 import SelectUser from './SelectUser'
 import Dashboard from '../containers/Dashboard'
 import Nav from './Nav'
 import { signOutUser } from '../redux/actions/users'
 
-const App = (props) => {
-  const { dispatch, users, authedUser} = props
+const App = ({ dispatch, authedUser } ) => {
+  
   useEffect(() => {
     dispatch(getInitialData())
   }, [dispatch]);
-  console.log(users)
   return(
-    <BrowserRouter>
-      <div>
+    <Router>
+      <>
         <LoadingBar />
         <div>
           {authedUser === null ? <Route render={() => <SelectUser />} />
@@ -44,8 +43,8 @@ const App = (props) => {
           }
 
         </div>
-      </div>
-    </BrowserRouter>
+      </>
+    </Router>
     
   )
 };

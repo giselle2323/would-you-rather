@@ -1,4 +1,4 @@
-import { showLoading, hideLoading } from 'react-redux-loading'
+import { showLoading, hideLoading } from 'react-redux-loading-bar'
 import { _saveQuestionAnswer } from '../../../utils/_DATA'
 import { addAnswerToQuestion } from '../questions/questionsActions'
 
@@ -41,15 +41,16 @@ const addAnswerToUser = (authedUser, qid, option) =>({
 export function handleSaveQuestionAnswer(authedUser, qid, option) {
   return (dispatch) => {
     dispatch(showLoading());
-    console.log(authedUser)
     _saveQuestionAnswer({
       authedUser,
       qid,
       answer: option
-    }).then(() => {
+    })
+    .then(() => {
       dispatch(addAnswerToUser(authedUser, qid, option ))
       dispatch(addAnswerToQuestion(authedUser, qid, option ))
-    }).then(() => dispatch(hideLoading()))
+    })
+    .then(() => dispatch(hideLoading()))
 
   };
 }

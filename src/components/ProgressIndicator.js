@@ -8,8 +8,7 @@ const ProgressIndicator = (props) => {
   const totalVotes = voteA + voteB;
   const percentage = ( (isA ? voteA : voteB) / totalVotes ) * 100;
 
-  
-  
+
   return (
     <div className={vote ? "progress-item-active" : "progress-item"}>
       {vote ? (

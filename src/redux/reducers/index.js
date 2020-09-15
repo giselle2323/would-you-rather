@@ -1,4 +1,4 @@
-import { loadingBarReducer } from "react-redux-loading"
+import { loadingBarReducer } from "react-redux-loading-bar"
 import { combineReducers } from 'redux'
 import authedUser from './users/authedUser'
 import users from './users/usersReducer'
