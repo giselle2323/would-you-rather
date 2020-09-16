@@ -7,7 +7,6 @@ const AddQuestion = ({authedUser, dispatch, history}) => {
   const [options, setOption] = useState({optionOne: '', optionTwo: ''})
 
   const handleOnChange = event => {
-    console.log('pree')
     const { name, value } = event.target;
     setOption({ ...options, [name]: value });
   };

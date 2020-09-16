@@ -20,6 +20,9 @@ const App = ({ dispatch, authedUser } ) => {
   useEffect(() => {
     dispatch(getInitialData())
   }, [dispatch]);
+  const handleSignOut = () => {
+    dispatch(signOutUser())
+  }
   return(
     <Router>
       <>
@@ -28,7 +31,7 @@ const App = ({ dispatch, authedUser } ) => {
           {authedUser === null ? <Route render={() => <SelectUser />} />
             :
             <>
-              <Nav authedUser={authedUser} signOut={signOutUser} />
+              <Nav authedUser={authedUser} signOut={handleSignOut} />
                 <section className="App">
                   <Switch>
                     <Route exact path="/" component={Dashboard} />
