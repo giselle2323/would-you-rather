@@ -27,7 +27,7 @@ const App = ({ dispatch, authedUser } ) => {
     <Router>
       <>
         <LoadingBar />
-        <div>
+        <>
           {authedUser === null ? <Route render={() => <SelectUser />} />
             :
             <>
@@ -45,7 +45,7 @@ const App = ({ dispatch, authedUser } ) => {
             </>
           }
 
-        </div>
+        </>
       </>
     </Router>
     
