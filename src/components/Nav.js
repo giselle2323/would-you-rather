@@ -2,13 +2,14 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 const Nav = ({ authedUser, signOut}) => {
-  console.log(authedUser)
   return (
     <div className="nav">
-      <span className="heading">
-        Welcome,
-        <br /> {authedUser}
-      </span>
+      <header className="nav-heading">
+        Welcome, {authedUser}
+        {/* <span>
+          <img src={authedUser.avatarURL} alt="avatar"/>
+        </span> */}
+      </header>
       <div className="nav-links">
         <NavLink
           activeClassName="nav-link-active"
@@ -33,7 +34,7 @@ const Nav = ({ authedUser, signOut}) => {
           New Question
         </NavLink>
       </div>
-      <button onClick={signOut} className="secondary-cta">
+      <button onClick={signOut} className="secondary-btn">
         Signout
       </button>
     </div>

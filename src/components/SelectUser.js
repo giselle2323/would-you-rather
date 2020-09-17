@@ -19,18 +19,14 @@ const SelectUser = ({ users, dispatch, loading } ) => {
         :
         <section className="select-user-container">
          <section className='left-intro-container'>
-          <div>
-              <header>Bring your A game</header>
-          </div>
           <div className='intro-image'>
             <img src={Questions} alt="woman-3D" />
           </div>
          </section>
          <section className='right-intro-container'>
-          
-            <h1 className="heading">Welcome to Would You Rather?</h1>
+            <h1 className="intro-heading">Welcome to Would You Rather?</h1>
             <p>Please select user to continue</p>
-            <div className="select-user-grid">
+            <section className="select-user-container">
               {Object.keys(users).map((keyName) => (
                 <div
                   className="select-user-item"
@@ -39,7 +35,7 @@ const SelectUser = ({ users, dispatch, loading } ) => {
                 >
                   <img
                     alt="user-avatar"
-                    src={users[keyName].avatar}
+                    src={users[keyName].avatarURL}
                     className={
                       users[keyName].name === activeUser
                         ? "select-user-avatar active-user-avatar"
@@ -51,13 +47,13 @@ const SelectUser = ({ users, dispatch, loading } ) => {
                   </p>
                 </div>
               ))}
-            </div>
+            </section>
             {activeUser !== '' ?
               <button
                 style={{
                   width: "20rem",
                 }}
-                className="primary-cta"
+                className="primary-btn"
                 onClick={loginActiveUser}
               >{`Continue as ${activeUser}`}</button>
               : ''

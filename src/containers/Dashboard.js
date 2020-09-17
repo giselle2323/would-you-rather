@@ -12,9 +12,8 @@ const Dashboard = (props) => {
   }
   
   return (
-    <>
-      <div>Dashboard</div>
-      <nav>
+    <section className='questions-container'>
+      <nav className='questions-nav'>
         {menuTabs.map((tab) => (
           <div
             key={tab.name}
@@ -29,7 +28,7 @@ const Dashboard = (props) => {
         ))}
       </nav>
 
-      <div>
+      <div className='question-item-container'>
         {activeTab === 'Answered'
           ? answeredQuestions.map((question) => (
             <Question
@@ -46,7 +45,7 @@ const Dashboard = (props) => {
             />
           ))}
       </div>
-    </>
+    </section>
   )
 }
 

@@ -3,14 +3,14 @@ import { connect } from 'react-redux'
 
 const LeaderBoardItem = ({ user }) => {
 
-  const { id, name, avatar, questions, answers } = user;
+  const { id, name, avatarURL, questions, answers } = user;
   const answeredQuestions = Object.keys(answers).length;
   const createdQuestions = questions.length;
   const totalPoints = answeredQuestions + createdQuestions;
 
   return (
     <div className="leaderboard-item">
-      <img src={avatar} className="select-user-avatar" alt={id} />
+      <img src={avatarURL} className="select-user-avatar" alt={id} />
       <div>
         <span className="title">{name}</span>
         <p>Answered Questions : {answeredQuestions}</p>

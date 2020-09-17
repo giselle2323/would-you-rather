@@ -22,8 +22,8 @@ const AddQuestion = ({authedUser, dispatch, history}) => {
 
   return (
     <div className="add-new-question">
-      <h1>Add a new Question</h1>
-      <form onSubmit={addQuestion}>
+      <h1 className='new-question-header'>Add a new Question</h1>
+      <form onSubmit={addQuestion} className='new-question-form'>
         <input
           type="text"
           className="input-field"
@@ -42,7 +42,7 @@ const AddQuestion = ({authedUser, dispatch, history}) => {
           placeholder="Enter Option Two"
           
         />
-        <button type="submit" className="primary-cta">
+        <button type="submit" className="primary-btn question-btn">
           Add Question
         </button>
       </form>

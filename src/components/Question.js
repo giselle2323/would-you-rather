@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 const Question = (props) => {
-  const { name, avatar } = props.author;
+  const { name, avatarURL } = props.author;
   const { id, optionOne, optionTwo } = props.question;
   const { isAnswered } = props;
   return (
@@ -11,7 +11,7 @@ const Question = (props) => {
       <div className="question-item-author">{name} asks</div>
       <div className="question-item-content">
         <div>
-          <img src={avatar} alt="avatar" className="select-user-avatar" />
+          <img src={avatarURL} alt="avatar" className="select-user-avatar" />
         </div>
         <span className="vertical-hr" />
         <div>

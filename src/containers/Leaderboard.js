@@ -4,15 +4,18 @@ import LeaderBoardItem from '../components/LeaderBoardItem'
 
 const LeaderBoard = ({ userIds }) => {
   return (
-    <div>
-      <h1>Leaderboard</h1>
-      {userIds.map((user) => {
-        return (
-          <LeaderBoardItem key={user} id={user}>
-            {user}
-          </LeaderBoardItem>
-        );
-      })}
+    <div class='leaderboard'>
+      <h1 className='leaderboard-heading'>Leaderboard</h1>
+      <section className='leaderborad-item-container'>
+        {userIds.map((user) => {
+          return (
+            <LeaderBoardItem key={user} id={user}>
+              {user}
+            </LeaderBoardItem>
+          );
+        })}
+      </section>
+      
     </div>
   )
 }

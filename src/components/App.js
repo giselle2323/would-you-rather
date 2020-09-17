@@ -30,9 +30,9 @@ const App = ({ dispatch, authedUser } ) => {
         <>
           {authedUser === null ? <Route render={() => <SelectUser />} />
             :
-            <>
+            <section className='main-container'>
               <Nav authedUser={authedUser} signOut={handleSignOut} />
-                <section className="App">
+                <section className="component-container">
                   <Switch>
                     <Route exact path="/" component={Dashboard} />
                     <Route path="/questions/bad_id" component={NoMatch} />
@@ -42,7 +42,7 @@ const App = ({ dispatch, authedUser } ) => {
                     <Route component={NoMatch} />
                   </Switch>
                 </section>
-            </>
+            </section>
           }
 
         </>
