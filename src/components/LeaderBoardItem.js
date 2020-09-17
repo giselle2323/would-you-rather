@@ -19,8 +19,7 @@ const LeaderBoardItem = ({ user }) => {
       </div>
       <div className="score-board">
         <p>
-          Score <br />
-          <br /> {totalPoints}
+          Score: {totalPoints}
         </p>
       </div>
     </div>

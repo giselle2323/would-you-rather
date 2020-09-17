@@ -6,7 +6,7 @@ import { handleSaveQuestionAnswer } from '../redux/actions/users'
 const QuestionPage = (props) => {
 
   const {dispatch, authedUser, question, author, answeredQuestions, vote, isNotExists, history } = props;
-  const { name, avatar } = author;
+  const { name, avatarURL } = author;
   const { optionOne, optionTwo } = question;
 
   if (isNotExists) {
@@ -22,13 +22,13 @@ const QuestionPage = (props) => {
   return (
     <div>
       <div className="question-item">
-        <div className="question-item-author">{name} asks</div>
+        <header className="question-item-author">{name} asks</header>
         <div className="question-item-content">
           <div>
-            <img src={avatar} alt="avatar" className="select-user-avatar" />
+            <img src={avatarURL} alt="avatar" className="select-user-avatar" />
           </div>
           <span className="vertical-hr" />
-          <div>
+          <div className='vote-container'>
             <span className="title">Would you rather</span>
             {answeredQuestions ? (
               <div>
@@ -48,15 +48,15 @@ const QuestionPage = (props) => {
                 />
               </div>
             ) : (
-                <div>
+                <div className='vote-continer'>
                   <button
-                    className="secondary-cta"
+                    className="secondary-btn"
                     onClick={() => handleVote("optionOne")}
                   >
                     {optionOne.text}
                   </button>
                   <button
-                    className="secondary-cta"
+                    className="secondary-btn"
                     onClick={() => handleVote("optionTwo")}
                   >
                     {optionTwo.text}

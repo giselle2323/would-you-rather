@@ -18,8 +18,8 @@ const Dashboard = (props) => {
           <div
             key={tab.name}
             className={tab.name === activeTab
-            ? 'tab-link-item-active'
-            : 'tab-link-item'
+            ? 'tab-link-item-active tab-link'
+            : 'tab-link-item tab-link'
             }
             onClick={() => onChangeTab(tab.name)}
           >

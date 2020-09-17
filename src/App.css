@@ -17,6 +17,7 @@ html, body {
   height: 100%;
 }
 
+
 img {
   max-width: 100%;
 }
@@ -26,7 +27,6 @@ img {
   flex: 1;
   flex-direction: row;
   background-color: #fff;
-  height: 100%;
 }
 
 .left-intro-container {
@@ -47,9 +47,14 @@ img {
   font-size: 25px;
 }
 
-.select-user-container {
+.select-user-section {
   display: flex;
-  flex-direction: 'row';
+  flex-direction: column;
+}
+
+.select-container {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   width: 100%;
 }
@@ -59,9 +64,16 @@ img {
   flex-direction: column;
   align-items: center;
   padding: 10px 20px;
-  height: 350px;
+  height: fit-content;
   border-radius: 10px;
   margin: 0 10px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.select-user-btn {
+  width: 20rem;
+  align-self: center;
+  margin: 20px 10px;
 }
 
 .primary-btn {
@@ -83,15 +95,16 @@ img {
 .nav {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 20%;
   background-color: #000080;
   color: #fff;
 }
 
 .component-container {
-  width: 70%;
+  width: 80%;
   display: flex;
   flex-direction: column;
+  overflow-x: scroll;
 }
 
 .questions-container {
@@ -112,10 +125,29 @@ img {
   display: flex;
   flex-direction: row;
   flex-flow: row wrap;
+  width: 96%;
+  margin: 2%;
 }
 
 .question-item {
-  padding: 10px;
+  text-align: center;
+  padding: 20px;
+  width: 23.3%;
+  margin: 2%;
+  border-radius: 10px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.question-item-author {
+  font-size: 20px;
+}
+
+.tab-link {
+  padding: 10px 20px;
+}
+
+.tab-link-item-active {
+  border-bottom: 4px dotted blue;
 }
 
 .nav-links {
@@ -135,8 +167,8 @@ img {
 
 .nav-heading {
   padding: 20px 20px;
-
 }
+
 .leaderboard {
   display: flex;
   flex-direction: column;
@@ -150,11 +182,17 @@ img {
   display: flex;
   flex-direction: row;
   flex-flow: row wrap;
+  padding: 10px;
 }
 
-.leaderborad-item {
+.leaderboard-item {
+  text-align: center;
   padding: 10px;
   border-radius: 10px;
+  width: 29%;
+  padding: 1%;
+  margin: 1%;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
 .add-new-question {
@@ -188,4 +226,19 @@ input {
   outline: none;
   padding: 10px;
   margin: 10px 20px;
+}
+
+.poll-btn {
+  text-decoration: none;
+  color: #000;
+  border: 4px dotted blue;
+  padding: 10px;
+}
+
+.vote-container {
+  align-self: center;
+}
+
+.vote-container .question-item {
+  width: fit-content;
 }
