@@ -1,10 +1,11 @@
 import React  from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import LeaderBoardItem from '../components/LeaderBoardItem'
 
 const LeaderBoard = ({ userIds }) => {
   return (
-    <div class='leaderboard'>
+    <div className='leaderboard'>
       <h1 className='leaderboard-heading'>Leaderboard</h1>
       <section className='leaderborad-item-container'>
         {userIds.map((user) => {
@@ -32,5 +33,9 @@ const mapStateToProps = ({ users, authedUser }) => {
 const getCount = (user) => {
   return user.questions.length + Object.keys(user.answers).length;
 };
+
+LeaderBoardItem.propTypes = {
+  userIds: PropTypes.array.isRequired
+}
 
 export default connect(mapStateToProps)(LeaderBoard);

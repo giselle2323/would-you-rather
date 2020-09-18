@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
-const Question = (props) => {
-  const { name, avatarURL } = props.author;
-  const { id, optionOne, optionTwo } = props.question;
-  const { isAnswered } = props;
+const Question = ({author, question, isAnswered}) => {
+
+  const { name, avatarURL } = author;
+  const { id, optionOne, optionTwo } = question;
+
   return (
     <div className="question-item">
       <div className="question-item-author">{name} asks</div>
@@ -39,9 +41,15 @@ const Question = (props) => {
   )
 }
 
+
+Question.propTypes = {
+  question: PropTypes.shape.isRequired,
+  author: PropTypes.isRequired,
+  isAnswered: PropTypes.string.isRequired
+}
+
 const mapStateToProps = ({ users, questions }, { id }) => {
   const questionItem = questions[id];
-  console.log(id)
   let { author } = questionItem;
   author = users[author];
 

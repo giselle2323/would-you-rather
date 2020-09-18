@@ -3,9 +3,8 @@ import { connect } from 'react-redux'
 import ProgressIndicator from '../components/ProgressIndicator'
 import { handleSaveQuestionAnswer } from '../redux/actions/users'
 
-const QuestionPage = (props) => {
+const QuestionPage = ({ dispatch, authedUser, question, author, answeredQuestions, vote, isNotExists, history }) => {
 
-  const {dispatch, authedUser, question, author, answeredQuestions, vote, isNotExists, history } = props;
   const { name, avatarURL } = author;
   const { optionOne, optionTwo } = question;
 
@@ -15,7 +14,6 @@ const QuestionPage = (props) => {
   }
 
   const handleVote = (option) => {
-    console.log(authedUser, question.id, option)
     dispatch(handleSaveQuestionAnswer(authedUser, question.id, option))
   }
   
@@ -48,15 +46,15 @@ const QuestionPage = (props) => {
                 />
               </div>
             ) : (
-                <div className='vote-continer'>
+                <div className='vote'>
                   <button
-                    className="secondary-btn"
+                    className="primary-btn vote-btn"
                     onClick={() => handleVote("optionOne")}
                   >
                     {optionOne.text}
                   </button>
                   <button
-                    className="secondary-btn"
+                    className="primary-btn vote-btn"
                     onClick={() => handleVote("optionTwo")}
                   >
                     {optionTwo.text}
@@ -84,7 +82,6 @@ const mapStateToProps = ({ authedUser, users, questions }, props) => {
 
   const authed = users[authedUser];
   const answeredQuestions = Object.keys(authed.answers).includes(question_id);
-  console.log(answeredQuestions)
 
   const authorId = questions[question_id].author;
   const author = users[authorId];

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import  PropTypes from 'prop-types'
 import Question from '../components/Question'
 
-const Dashboard = (props) => {
-  const {answeredQuestions, unansweredQuestions } = props;
+const Dashboard = ({ answeredQuestions, unansweredQuestions }) => {
   const [activeTab, setActiveTab] = useState('Unanswered');
   const [menuTabs] = useState([{name: 'Unanswered'}, {name: 'Answered'}]);
 
@@ -47,6 +47,13 @@ const Dashboard = (props) => {
       </div>
     </section>
   )
+}
+
+
+Dashboard.propTypes = {
+  answeredQuestions: PropTypes.array.isRequired, 
+  unansweredQuestions: PropTypes.array.isRequired
+
 }
 
 const mapStateToProps = ({authedUser, questions, users}) => {

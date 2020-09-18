@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import {  Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 import '../App.css';
 
@@ -32,13 +33,14 @@ const App = ({ dispatch, authedUser } ) => {
             :
             <section className='main-container'>
               <Nav authedUser={authedUser} signOut={handleSignOut} />
+              
                 <section className="component-container">
                   <Switch>
                     <Route exact path="/" component={Dashboard} />
-                    <Route path="/questions/bad_id" component={NoMatch} />
-                    <Route path="/questions/:question_id" component={QuestionPage} />
-                    <Route path="/add" component={AddQuestion} />
-                    <Route path="/leaderboard" component={Leaderboard} />
+                    <Route path="/questions/bad_id" exact component={NoMatch} />
+                    <Route path="/questions/:question_id" exact component={QuestionPage} />
+                    <Route path="/add" exact component={AddQuestion} />
+                    <Route path="/leaderboard" exact component={Leaderboard} />
                     <Route component={NoMatch} />
                   </Switch>
                 </section>
@@ -51,6 +53,10 @@ const App = ({ dispatch, authedUser } ) => {
     
   )
 };
+
+App.propTypes = {
+  authedUser: PropTypes.string.isRequired
+}
 
 const mapStateToProps = ({ users, authedUser, questions }) => {
   return {

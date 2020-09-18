@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 const LeaderBoardItem = ({ user }) => {
 
@@ -25,6 +26,10 @@ const LeaderBoardItem = ({ user }) => {
     </div>
   )
 }
+
+LeaderBoardItem.propTypes = {
+  user : PropTypes.shape.isRequired
+};
 
 const mapStateToProps = ({ users }, { id }) => {
   return {

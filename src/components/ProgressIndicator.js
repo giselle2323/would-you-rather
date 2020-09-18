@@ -1,9 +1,10 @@
 import React from 'react'
 import { Line } from 'rc-progress'
+import PropTypes from 'prop-types'
 
 
-const ProgressIndicator = (props) => {
-  const { text, voteA, voteB, isA, vote } = props;
+const ProgressIndicator = ({ text, voteA, voteB, isA, vote }) => {
+
   
   const totalVotes = voteA + voteB;
   const percentage = ( (isA ? voteA : voteB) / totalVotes ) * 100;
@@ -29,4 +30,11 @@ const ProgressIndicator = (props) => {
   )
 }
 
+ProgressIndicator.propTypes = {
+  text: PropTypes.string.isRequired, 
+  voteA: PropTypes.number.isRequired, 
+  voteB: PropTypes.number.isRequired, 
+  isA: PropTypes.bool.isRequired,
+  vote: PropTypes.string.isRequired
+}
 export default ProgressIndicator

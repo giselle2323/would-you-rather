@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { connect } from 'react-redux'
 import { loginUser } from "../redux/actions/users"
 import Questions from '../images/question.svg'
+import PropTypes from  'prop-types'
 
 const SelectUser = ({ users, dispatch, loading } ) => {
   const [activeUser , setActiveUser] = useState('')
@@ -66,6 +67,11 @@ const SelectUser = ({ users, dispatch, loading } ) => {
       }
     </>
   )
+}
+
+SelectUser.propTypes = {
+  users: PropTypes.shape.isRequired,
+
 }
 
 function mapStateToProps({ users, loadingBar }) {

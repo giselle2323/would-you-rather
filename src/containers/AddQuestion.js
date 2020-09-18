@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import { handleSaveQuestion } from '../redux/actions/questions'
 
 
@@ -13,7 +14,6 @@ const AddQuestion = ({authedUser, dispatch, history}) => {
 
   const addQuestion = (e) => {
     e.preventDefault();
-    console.log(options)
     dispatch( handleSaveQuestion(options.optionOne, options.optionTwo, authedUser))
       .then(() => {
         history.push("/");
@@ -52,6 +52,9 @@ const AddQuestion = ({authedUser, dispatch, history}) => {
 
 }
 
+AddQuestion.propTypes = {
+  authedUser: PropTypes.shape.isRequired
+}
 
 const mapStateToProps = ({ authedUser }) => {
   return {

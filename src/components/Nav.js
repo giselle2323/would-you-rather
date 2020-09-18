@@ -1,14 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 const Nav = ({ authedUser, signOut}) => {
   return (
     <div className="nav">
       <header className="nav-heading">
         Welcome, {authedUser}
-        {/* <span>
-          <img src={authedUser.avatarURL} alt="avatar"/>
-        </span> */}
       </header>
       <div className="nav-links">
         <NavLink
@@ -39,6 +37,11 @@ const Nav = ({ authedUser, signOut}) => {
       </button>
     </div>
   )
+}
+
+Nav.propTypes = {
+  authedUser: PropTypes.string.isRequired,
+  signOut: PropTypes.func.isRequired
 }
 
 export default Nav;

@@ -17,7 +17,6 @@ html, body {
   height: 100%;
 }
 
-
 img {
   max-width: 100%;
 }
@@ -198,6 +197,7 @@ img {
 .add-new-question {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .new-question-header {
@@ -207,7 +207,8 @@ img {
 .new-question-form {
   display: flex;
   flex-direction: column;
-  padding: 10px
+  padding: 10px;
+  width: 50%;
 }
 
 input {
@@ -241,4 +242,17 @@ input {
 
 .vote-container .question-item {
   width: fit-content;
+}
+
+.vote-btn {
+  margin: 10px 20px;
+}
+
+.progress-item-active {
+  border: 2px dotted blue;
+  margin: 10px;
+}
+
+.progress-item {
+  margin: 10px;
 }
