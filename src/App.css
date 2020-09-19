@@ -256,3 +256,8 @@ input {
 .progress-item {
   margin: 10px;
 }
+
+.no-match {
+  width: 100%;
+  display: contents;
+}

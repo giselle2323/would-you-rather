@@ -21,6 +21,10 @@ const LeaderBoard = ({ userIds }) => {
   )
 }
 
+LeaderBoard.propTypes = {
+  userIds: PropTypes.array.isRequired
+}
+
 const mapStateToProps = ({ users, authedUser }) => {
   return {
     authedUser: authedUser,
@@ -34,8 +38,6 @@ const getCount = (user) => {
   return user.questions.length + Object.keys(user.answers).length;
 };
 
-LeaderBoardItem.propTypes = {
-  userIds: PropTypes.array.isRequired
-}
+
 
 export default connect(mapStateToProps)(LeaderBoard);

@@ -53,7 +53,7 @@ const AddQuestion = ({authedUser, dispatch, history}) => {
 }
 
 AddQuestion.propTypes = {
-  authedUser: PropTypes.shape.isRequired
+  authedUser: PropTypes.string.isRequired
 }
 
 const mapStateToProps = ({ authedUser }) => {

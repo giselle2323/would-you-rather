@@ -70,7 +70,7 @@ const SelectUser = ({ users, dispatch, loading } ) => {
 }
 
 SelectUser.propTypes = {
-  users: PropTypes.shape.isRequired,
+  users: PropTypes.object.isRequired,
 
 }
 

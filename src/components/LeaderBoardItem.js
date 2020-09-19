@@ -28,7 +28,7 @@ const LeaderBoardItem = ({ user }) => {
 }
 
 LeaderBoardItem.propTypes = {
-  user : PropTypes.shape.isRequired
+  user : PropTypes.object.isRequired
 };
 
 const mapStateToProps = ({ users }, { id }) => {

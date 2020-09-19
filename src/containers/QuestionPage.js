@@ -1,10 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import ProgressIndicator from '../components/ProgressIndicator'
 import { handleSaveQuestionAnswer } from '../redux/actions/users'
 
 const QuestionPage = ({ dispatch, authedUser, question, author, answeredQuestions, vote, isNotExists, history }) => {
-
+  
   const { name, avatarURL } = author;
   const { optionOne, optionTwo } = question;
 
@@ -68,6 +69,14 @@ const QuestionPage = ({ dispatch, authedUser, question, author, answeredQuestion
   )
 };
 
+QuestionPage.propTypes = {
+  authedUser: PropTypes.string.isRequired, 
+  question: PropTypes.object.isRequired, 
+  author: PropTypes.object.isRequired, 
+  answeredQuestions: PropTypes.bool.isRequired, 
+  vote: PropTypes.any, 
+  isNotExists: PropTypes.bool.isRequired
+}
 const mapStateToProps = ({ authedUser, users, questions }, props) => {
 
 

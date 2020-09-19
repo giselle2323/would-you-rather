@@ -35,6 +35,6 @@ ProgressIndicator.propTypes = {
   voteA: PropTypes.number.isRequired, 
   voteB: PropTypes.number.isRequired, 
   isA: PropTypes.bool.isRequired,
-  vote: PropTypes.string.isRequired
+  vote: PropTypes.any
 }
 export default ProgressIndicator

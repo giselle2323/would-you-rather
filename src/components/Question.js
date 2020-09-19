@@ -43,8 +43,8 @@ const Question = ({author, question, isAnswered}) => {
 
 
 Question.propTypes = {
-  question: PropTypes.shape.isRequired,
-  author: PropTypes.isRequired,
+  question: PropTypes.object.isRequired,
+  author: PropTypes.object.isRequired,
   isAnswered: PropTypes.string.isRequired
 }
 

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-// import PropTypes from 'prop-types'
 import {  Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 import '../App.css';
 
@@ -28,31 +27,33 @@ const App = ({ dispatch, authedUser } ) => {
     <Router>
       <>
         <LoadingBar />
-          <section className='main-container'>
-          {authedUser === null ? <Route exact path="/" component={SelectUser} />
+        <>
+          {authedUser === null ? <Route render={() => <SelectUser />} />
             :
-              <section className="component-container">
-                <Nav authedUser={authedUser} signOut={handleSignOut} />
-                <Switch>
-                  <Route exact path="/" component={Dashboard} />
-                  <Route path="/questions/bad_id" exact component={NoMatch} />
-                  <Route path="/questions/:question_id" exact component={QuestionPage} />
-                  <Route path="/add" exact component={AddQuestion} />
-                  <Route path="/leaderboard" exact component={Leaderboard} />
-                  <Route component={NoMatch} />
-                </Switch>
-              </section>
+            <section className='main-container'>
+              <Nav authedUser={authedUser} signOut={handleSignOut} />
+              
+                <section className="component-container">
+                  <Switch>
+                    <Route exact path="/" component={Dashboard} />
+                    <Route exact path="/questions/bad_id" component={NoMatch} />
+                    <Route exact path="/questions/:question_id" component={QuestionPage} />
+                    <Route exact path="/add" component={AddQuestion} />
+                    <Route exact path="/leaderboard" component={Leaderboard} />
+                    <Route component={NoMatch} />
+                  </Switch>
+                </section>
+            </section>
           }
-        </section>
+
         </>
+      </>
     </Router>
     
   )
 };
 
-// App.propTypes = {
-//   authedUser: PropTypes.string.isRequired
-// }
+
 
 const mapStateToProps = ({ users, authedUser, questions }) => {
   return {
