@@ -2,18 +2,19 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import ProgressIndicator from '../components/ProgressIndicator'
+import NoMatch from '../components/NoMatch'
 import { handleSaveQuestionAnswer } from '../redux/actions/users'
 
-const QuestionPage = ({ dispatch, authedUser, question, author, answeredQuestions, vote, isNotExists, history }) => {
+const QuestionPage = ({ dispatch, authedUser, question, author, answeredQuestions, vote, isNotExists }) => {
   
+   if (isNotExists) {
+    return <NoMatch />
+  }
+
   const { name, avatarURL } = author;
   const { optionOne, optionTwo } = question;
 
-  if (isNotExists) {
-    history.push("/");
-    return null;
-  }
-
+ 
   const handleVote = (option) => {
     dispatch(handleSaveQuestionAnswer(authedUser, question.id, option))
   }
