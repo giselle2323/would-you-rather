@@ -10,9 +10,7 @@ const LeaderBoard = ({ userIds }) => {
       <section className='leaderborad-item-container'>
         {userIds.map((user) => {
           return (
-            <LeaderBoardItem key={user} id={user}>
-              {user}
-            </LeaderBoardItem>
+            <LeaderBoardItem key={user} id={user} />
           );
         })}
       </section>

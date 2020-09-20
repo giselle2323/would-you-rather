@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { handleSaveQuestion } from '../redux/actions/questions'
 
 
-const AddQuestion = ({authedUser, dispatch, history}) => {
+const AddQuestion = ({authedUser, history, saveQuestion}) => {
   const [options, setOption] = useState({optionOne: '', optionTwo: ''})
 
   const handleOnChange = event => {
@@ -14,10 +14,10 @@ const AddQuestion = ({authedUser, dispatch, history}) => {
 
   const addQuestion = (e) => {
     e.preventDefault();
-    dispatch( handleSaveQuestion(options.optionOne, options.optionTwo, authedUser))
-      .then(() => {
-        history.push("/");
-      });
+    saveQuestion(options.optionOne, options.optionTwo, authedUser)
+    .then(() => {
+      history.push("/");
+    });
   }
 
   return (
@@ -53,7 +53,8 @@ const AddQuestion = ({authedUser, dispatch, history}) => {
 }
 
 AddQuestion.propTypes = {
-  authedUser: PropTypes.string.isRequired
+  authedUser: PropTypes.string.isRequired,
+  saveQuestion: PropTypes.func.isRequired
 }
 
 const mapStateToProps = ({ authedUser }) => {
@@ -62,5 +63,9 @@ const mapStateToProps = ({ authedUser }) => {
   }
 
 }
-
-export default connect(mapStateToProps)(AddQuestion);
+const mapDispatchToProps = dispatch => {
+  return {
+    saveQuestion: (optionOne, optionTwo, user) => dispatch(handleSaveQuestion(optionOne, optionTwo, user))
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(AddQuestion);

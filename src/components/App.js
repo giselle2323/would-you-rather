@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import {  Route, Switch, BrowserRouter as Router } from 'react-router-dom'
+import { useHistory } from 'react-router'
+import {  Route, Switch, BrowserRouter as Router} from 'react-router-dom'
 import '../App.css';
 
 import NoMatch from './NoMatch'
@@ -15,13 +16,17 @@ import Dashboard from '../containers/Dashboard'
 import Nav from './Nav'
 import { signOutUser } from '../redux/actions/users'
 
-const App = ({ dispatch, authedUser } ) => {
+const App = ({ authedUser, signOut, loadData } ) => {
   
   useEffect(() => {
-    dispatch(getInitialData())
-  }, [dispatch]);
+    loadData()
+  }, [loadData]);
+
+  let history = useHistory();
+
   const handleSignOut = () => {
-    dispatch(signOutUser())
+    signOut()
+    history('/')
   }
   return(
     <Router>
@@ -64,4 +69,10 @@ const mapStateToProps = ({ users, authedUser, questions }) => {
   };
 };
 
-export default connect(mapStateToProps)(App)
+const mapDispatchToProps = dispatch => {
+  return {
+    loadData: () => dispatch(getInitialData()),
+    signOut: () => dispatch(signOutUser())
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App)

@@ -5,7 +5,7 @@ import ProgressIndicator from '../components/ProgressIndicator'
 import NoMatch from '../components/NoMatch'
 import { handleSaveQuestionAnswer } from '../redux/actions/users'
 
-const QuestionPage = ({ dispatch, authedUser, question, author, answeredQuestions, vote, isNotExists }) => {
+const QuestionPage = ({ authedUser, question, author, answeredQuestions, vote, isNotExists, saveQuestionAnswer }) => {
   
    if (isNotExists) {
     return <NoMatch />
@@ -16,7 +16,7 @@ const QuestionPage = ({ dispatch, authedUser, question, author, answeredQuestion
 
  
   const handleVote = (option) => {
-    dispatch(handleSaveQuestionAnswer(authedUser, question.id, option))
+    saveQuestionAnswer(authedUser, question.id, option)
   }
   
   return (
@@ -71,13 +71,15 @@ const QuestionPage = ({ dispatch, authedUser, question, author, answeredQuestion
 };
 
 QuestionPage.propTypes = {
-  authedUser: PropTypes.string.isRequired, 
-  question: PropTypes.object.isRequired, 
-  author: PropTypes.object.isRequired, 
-  answeredQuestions: PropTypes.bool.isRequired, 
+  authedUser: PropTypes.string, 
+  question: PropTypes.object, 
+  author: PropTypes.object, 
+  answeredQuestions: PropTypes.bool,
   vote: PropTypes.any, 
-  isNotExists: PropTypes.bool.isRequired
+  isNotExists: PropTypes.bool.isRequired,
+  saveQuestionAnswer: PropTypes.func.isRequired
 }
+
 const mapStateToProps = ({ authedUser, users, questions }, props) => {
 
 
@@ -105,4 +107,10 @@ const mapStateToProps = ({ authedUser, users, questions }, props) => {
     vote: answeredQuestions ? authed.answers[question_id] : null,
   };
 }
-export default connect(mapStateToProps)(QuestionPage)
+
+const mapDispatchToProps = dispatch => {
+  return {
+    saveQuestionAnswer: (authedUser, questionId, option) => dispatch(handleSaveQuestionAnswer(authedUser, questionId, option))
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionPage)
