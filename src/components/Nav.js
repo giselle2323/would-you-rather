@@ -3,17 +3,19 @@ import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 const Nav = ({ authedUser, signOut}) => {
-  const [toggleNav, setToggleNav] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const ToggleNav = () => {
-    setToggleNav(!toggleNav)
+    setIsOpen(!isOpen)
   }
   return (
     <nav className="nav">
       <header className="nav-heading">
         Welcome, {authedUser}
       </header>
-      <i onClick={ToggleNav} className="material-icons md-18 md-light toggle-icon">dehaze</i>
-      <div className="nav-links">
+      <div className='toggle-icon'>
+        <i onClick={ToggleNav} className="material-icons md-18 md-light">dehaze</i>
+      </div>
+      <div className={ isOpen ? "nav-open nav-links": " nav-closed nav-links"}>
         <NavLink
           activeClassName="nav-link-active"
           exact

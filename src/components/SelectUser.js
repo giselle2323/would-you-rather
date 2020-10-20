@@ -48,20 +48,23 @@ const SelectUser = ({ users, dispatch, loading } ) => {
                     <p className="select-user-avatar-name">
                       {users[keyName].name}
                     </p>
+
+                    {activeUser !== '' && activeUser === keyName ?
+                      <button
+                        style={{
+                          width: "200px",
+                        }}
+                        className="primary-btn select-user-btn"
+                        onClick={loginActiveUser}
+                      >{`Continue as ${activeUser}`}</button>
+                      : ''
+                    }
                   </div>
                 ))}
+                
               </section>
                 
-              {activeUser !== '' ?
-                <button
-                  style={{
-                    width: "20rem",
-                  }}
-                  className="primary-btn select-user-btn"
-                  onClick={loginActiveUser}
-                >{`Continue as ${activeUser}`}</button>
-                : ''
-              }
+              
             </section>
          </section>
         </section>

@@ -342,6 +342,7 @@ form input {
     width: 100%;
     height: auto;
     position: relative;
+    display: block;
     
   }
 
@@ -350,11 +351,20 @@ form input {
   }
 
   .nav-heading {
-    margin: 10px 20px;
+    margin: 12px 20px;
+    font-size: 19px;
   }
 
   .nav > .secondary-btn {
     width: 200px;
+  }
+
+  .nav-open {
+    display: block;
+  }
+
+  .nav-closed {
+    display: none;
   }
 
   .toggle-icon {
@@ -364,6 +374,9 @@ form input {
     top: 10px;
   }
 
+  .right-intro-container {
+    width: 100%;
+  }
   .component-container {
     width: 100%;
   }
