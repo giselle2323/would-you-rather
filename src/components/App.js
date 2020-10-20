@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { useHistory } from 'react-router'
+import { useHistory } from 'react-router-dom'
 import {  Route, Switch, BrowserRouter as Router} from 'react-router-dom'
 import '../App.css';
 
@@ -17,12 +17,11 @@ import Nav from './Nav'
 import { signOutUser } from '../redux/actions/users'
 
 const App = ({ authedUser, signOut, loadData } ) => {
+  let history = useHistory();
   
   useEffect(() => {
     loadData()
   }, [loadData]);
-
-  let history = useHistory();
 
   const handleSignOut = () => {
     signOut()

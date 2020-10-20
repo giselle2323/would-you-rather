@@ -243,6 +243,20 @@ img {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
+.leaderboard-item hr {
+  width: 300px;
+  background-color: blue;
+}
+
+.leaderboard-item span {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.leaderboard-item p {
+  color: #222222bf;
+}
+
 .add-new-question {
   display: flex;
   flex-direction: column;
@@ -260,9 +274,12 @@ img {
   width: 50%;
 }
 
-input {
+form input {
   padding: 10px 20px;
   margin: 10px 20px;
+  border: none;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+  0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
 .question-btn {
@@ -369,5 +386,13 @@ input {
 
   .left-intro-container {
     display: none;
+  }
+
+  .leaderborad-item-container {
+    flex-direction: column;
+  }
+
+  .leaderboard-item {
+    width: 96%;
   }
 }
