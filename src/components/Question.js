@@ -9,27 +9,19 @@ const Question = ({author, question, isAnswered}) => {
   const { id, optionOne, optionTwo } = question;
 
   return (
-    <div className="question-item">
+    <section className="question-item">
       <div className="question-item-author">{name} asks</div>
       <div className="question-item-content">
         <div>
           <img src={avatarURL} alt="avatar" className="select-user-avatar" />
         </div>
         <span className="vertical-hr" />
-        <div>
+        <div className='question__title'>
           <span className="title">Would you rather</span>
-          <p
-            style={{
-              fontSize: 14,
-            }}
-          >
+          <p>
             {optionOne.text}
           </p>
-          <p
-            style={{
-              fontSize: 14,
-            }}
-          >
+          <p>
             {optionTwo.text}
           </p>
           <Link className="poll-btn" to={`questions/${id}`}>
@@ -37,7 +29,7 @@ const Question = ({author, question, isAnswered}) => {
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

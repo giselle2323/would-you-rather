@@ -1,8 +1,5 @@
 import { GET_USERS, ADD_VOTE_TO_USER, ADD_QUESTION_TO_USER } from '../../actions/users/userActions'
 
-
-
-
 const initialState = {};
 
 export default function usersReducer(state = initialState, action) {

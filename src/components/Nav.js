@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 const Nav = ({ authedUser, signOut}) => {
+  const [toggleNav, setToggleNav] = useState(false);
+  const ToggleNav = () => {
+    setToggleNav(!toggleNav)
+  }
   return (
-    <div className="nav">
+    <nav className="nav">
       <header className="nav-heading">
         Welcome, {authedUser}
       </header>
+      <i onClick={ToggleNav} className="material-icons md-18 md-light toggle-icon">dehaze</i>
       <div className="nav-links">
         <NavLink
           activeClassName="nav-link-active"
@@ -15,27 +20,33 @@ const Nav = ({ authedUser, signOut}) => {
           to="/"
           className="nav-link"
         >
-          Home
+          <span className="material-icons md-light">
+            home
+          </span>Home 
         </NavLink>
         <NavLink
           activeClassName="nav-link-active"
           to="/leaderboard"
           className="nav-link"
         >
-          Leaderboard
+          <span className="material-icons md-light">
+            analytics
+          </span>Leaderboard
         </NavLink>
         <NavLink
           activeClassName="nav-link-active"
           to="/add"
           className="nav-link"
         >
-          New Question
+          <span className="material-icons md-light">
+            help
+          </span>New Question 
         </NavLink>
       </div>
       <button onClick={signOut} className="secondary-btn">
         Signout
       </button>
-    </div>
+    </nav>
   )
 }
 

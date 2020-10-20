@@ -20,14 +20,15 @@ const SelectUser = ({ users, dispatch, loading } ) => {
         :
         <section className="select-user-container">
          <section className='left-intro-container'>
-          <div className='intro-image'>
+          {/* <div className='intro-image'>
             <img src={Questions} alt="woman-3D" />
-          </div>
+          </div> */}
          </section>
          <section className='right-intro-container'>
-            <h1 className="intro-heading">Welcome to Would You Rather?</h1>
-            <p>Please select user to continue</p>
+            {/* <h1 className="intro-heading">Welcome to Would You Rather?</h1> */}
+            
             <section className="select-user-section">
+              <h2>Please select user to continue</h2>
               <section className='select-container'>
                 {Object.keys(users).map((keyName) => (
                   <div

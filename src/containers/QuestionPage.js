@@ -20,11 +20,11 @@ const QuestionPage = ({ authedUser, question, author, answeredQuestions, vote, i
   }
   
   return (
-    <div>
+    <section>
       <div className="question-item">
         <header className="question-item-author">{name} asks</header>
         <div className="question-item-content">
-          <div>
+          <div className="question-user-image">
             <img src={avatarURL} alt="avatar" className="select-user-avatar" />
           </div>
           <span className="vertical-hr" />
@@ -66,7 +66,7 @@ const QuestionPage = ({ authedUser, question, author, answeredQuestions, vote, i
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 };
 

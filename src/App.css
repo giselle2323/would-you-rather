@@ -26,19 +26,22 @@ img {
   flex: 1;
   flex-direction: row;
   background-color: #fff;
+  height:100%;
 }
 
 .left-intro-container {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  background-color: #000080;
+  width: 20%;
+  border-radius: 0 0 130px 0;
 }
 
 .right-intro-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width: 80%;
   background-color: #fff;
 }
 
@@ -49,6 +52,14 @@ img {
 .select-user-section {
   display: flex;
   flex-direction: column;
+  width: 98%;
+  text-align: center;
+  padding: 10px;
+}
+.select-user-section h2 {
+  font-weight: normal;
+  font-size: 30px;
+  
 }
 
 .select-container {
@@ -65,11 +76,24 @@ img {
   padding: 10px 20px;
   height: fit-content;
   border-radius: 10px;
-  margin: 0 10px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  margin: 20px;
+  width: 250px;
+  height: 250px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
+.select-user-item img {
+  width: 100%;
+  object-fit: contain;
+}
+.select-user-avatar-name {
+  font-size: 20px;
+  font-weight: 600;
+}
 .select-user-btn {
+  height: 60px;
+  font-size: 18px;
   width: 20rem;
   align-self: center;
   margin: 20px 10px;
@@ -134,11 +158,27 @@ img {
   width: 23.3%;
   margin: 2%;
   border-radius: 10px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .question-item-author {
   font-size: 20px;
+  color: #222222bf;
+}
+
+.question-user-image img {
+  max-width: 100%;
+  width: 100%;
+}
+
+.question__title {
+  font-size: 14px;
+  color: #808080
+}
+
+.question__title p {
+  color: #222222bf;
+  padding-bottom: 10px;
 }
 
 .tab-link {
@@ -157,6 +197,7 @@ img {
 .nav-links a {
   padding: 10px 20px;
   color: #fff;
+  font-size: 18px;
   text-decoration: none;
 }
 
@@ -164,8 +205,16 @@ img {
   color: #fff;
 }
 
+.toggle-icon {
+  display: none;
+}
+
 .nav-heading {
   padding: 20px 20px;
+  margin: 8px auto;
+  font-size: 20px;
+  border: 4px dotted #fff;
+  width: 200px
 }
 
 .leaderboard {
@@ -231,9 +280,9 @@ input {
 
 .poll-btn {
   text-decoration: none;
-  color: #000;
+  color: #222222bf;
   border: 4px dotted blue;
-  padding: 10px;
+  padding: 10px 20px;
 }
 
 .vote-container {
@@ -260,4 +309,65 @@ input {
 .no-match {
   width: 100%;
   display: contents;
+}
+
+.material-icons {
+  vertical-align: middle;
+  padding: 10px;
+  
+}
+
+@media screen and (max-width: 700px) {
+  .main-container {
+    flex-direction: column;
+  }
+  .nav {
+    width: 100%;
+    height: auto;
+    position: relative;
+    
+  }
+
+  .nav a {
+    float: left;
+  }
+
+  .nav-heading {
+    margin: 10px 20px;
+  }
+
+  .nav > .secondary-btn {
+    width: 200px;
+  }
+
+  .toggle-icon {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
+  .component-container {
+    width: 100%;
+  }
+
+  .question-item-container {
+    flex-direction: column;
+  }
+
+  .question-item {
+    width: 86%;
+  }
+
+  .select-user-container {
+    flex-direction: column;
+  }
+
+  .select-container {
+    flex-flow: wrap;
+  }
+
+  .left-intro-container {
+    display: none;
+  }
 }
