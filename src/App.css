@@ -105,7 +105,7 @@ img {
   border: none;
   outline: none;
   border-radius: 10px;
-  padding: 10px;
+  padding: 10px 15px;
 }
 
 .main-container {
@@ -224,6 +224,7 @@ img {
 
 .leaderboard-heading {
   align-self: center;
+  font-size: 25px;
 }
 
 .leaderborad-item-container {
@@ -240,7 +241,7 @@ img {
   width: 29%;
   padding: 1%;
   margin: 1%;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .leaderboard-item hr {
@@ -352,11 +353,13 @@ form input {
 
   .nav-heading {
     margin: 12px 20px;
+    padding: 20px 1px;
     font-size: 19px;
   }
 
   .nav > .secondary-btn {
     width: 200px;
+    padding: 14px 20px;
   }
 
   .nav-open {
@@ -365,6 +368,11 @@ form input {
 
   .nav-closed {
     display: none;
+  }
+
+  .leaderboard-item {
+    margin: 3% 1%;
+    
   }
 
   .toggle-icon {
@@ -387,6 +395,17 @@ form input {
 
   .question-item {
     width: 86%;
+  }
+
+  .new-question-form {
+    width: 94%;
+  }
+
+  .question-btn {
+    padding: 16px 20px;
+  }
+  .new-question-header {
+    font-size: 25px;
   }
 
   .select-user-container {

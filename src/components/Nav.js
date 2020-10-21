@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 const Nav = ({ authedUser, signOut}) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const ToggleNav = () => {
     setIsOpen(!isOpen)
   }

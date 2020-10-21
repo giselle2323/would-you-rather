@@ -21,6 +21,7 @@ const Question = ({author, question, isAnswered}) => {
           <p>
             {optionOne.text}
           </p>
+          <p className='question-or'>OR</p>
           <p>
             {optionTwo.text}
           </p>
